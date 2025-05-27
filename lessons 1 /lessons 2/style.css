@@ -1,0 +1,52 @@
+/* селектор применяемый ко всем элементам */
+
+* {
+    font-family: Impact, sans-serif;
+  }
+  
+  /* пример селекторов по тегам */
+  
+  h1 {
+    text-align: center;
+    color:rgb(125, 30, 62);
+    font-size: 25px;
+  }
+  
+  p {
+    color: darkmagenta;
+    font-style: italic;
+  }
+  
+  /* селектор по классу */
+  /* обращаемся через точку */
+  /* классы придумываем сами */
+  /* значение для класса пишем в одно слово */
+  
+  .bold-underline {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .blue-text {
+    color:rgb(191, 108, 191);
+  }
+  
+  /* селекторы по классу приоритетнее селекторов по тегу - применятся их стили */
+  
+  p>span {
+    font-size: 28px;
+  }
+
+  body {
+    background-color: rgba(243, 180, 199, 0.616);
+  }
+
+h3,
+h4 {
+    color: rgb(215, 92, 178);
+}
+
+.small-image {
+    width: 400px;
+    
+}
