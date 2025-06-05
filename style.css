@@ -1,0 +1,22 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+li {
+    list-style: none;
+}
+
+li::before {
+    content:' 🖇️';
+}
+
+a {
+    color: black;
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline;
+    color: coral;
+}
+
