@@ -45,7 +45,7 @@ console.log(newArray);
 /*!1.6 Создайте на основе старого массива новый массив объектов по образу:
 `[{ name: "Luke Skywalker", isJedi: true }, { name: "Han Solo", isJedi: false }, ...]` */
 
-const starWarsHeroes = [
+const starWarsHeroes2 = [
   { name: "Anakin Skywalker", age: 30, isJedi: true },
   { name: "Luke Skywalker", age: 25, isJedi: true },
   { name: "Han Solo", age: 35, isJedi: false },
@@ -59,5 +59,5 @@ function selectNameandJedi(hero) {
     isJedi: hero.isJedi,
   };
 }
-const UpdateArray = starWarsHeroes.map(selectNameandJedi);
+const UpdateArray = starWarsHeroes2.map(selectNameandJedi);
 console.log(UpdateArray);
