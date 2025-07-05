@@ -1,21 +1,64 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кинопоиск - Карточка фильма</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="movie-card">
-        <img src="image.png" alt="Постер фильма Бешенство" class="movie-poster">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework</title>
+    <style>
+      html {
+      scroll-behavior:smooth;
+    }
+    </style>
+
+  </head>
+  <body>
+    <header class="banner-container">
+      <img src="image.jpeg" alt="banner" class="banner-image" />
+
+      <div class="bottom-bar">
+        <div class="left-group">
+          <img src="logo.png" alt="logo" class="logo" />
+
+          <div class="play">
+            <img src="play.svg" alt="play" class="icon" />
+            <span class="text">Онлайн-кинотеатр</span>
+          </div>
+
+          <div class="oscar">
+            <img src="oscar.svg" alt="oscar" class="icon" />
+            <span class="text">Оскар-2023</span>
+          </div>
+        </div>
+
+        <input
+          type="text"
+          class="search"
+          placeholder="Фильмы, сериалы, передачи"
+        />
+      </div>
+    </header>
+
+    <main>
+      <div class="movie-card">
+        <img
+          src="movie1.jpeg"
+          alt="Постер фильма Бешенство"
+          class="movie-poster"
+        />
         <div class="rating-square">9.8</div>
         <div class="tickets-button">Билеты</div>
-    </div>
-    
-    <div class="movie-card">
-        <img src="image copy.png" alt="Постер фильма Нюрнберг" class="movie-poster">
+      </div>
+
+      <div class="movie-card">
+        <img
+          src="movie2.jpeg"
+          alt="Постер фильма Нюрнберг"
+          class="movie-poster"
+        />
         <div class="rating-square red">4.6</div>
-       <div class="tickets-button">Билеты</div>
-    </div>
-</body>
+        <div class="tickets-button">Билеты</div>
+      </div>
+    </main>
+  </body>
+</html>
