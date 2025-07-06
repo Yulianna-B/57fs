@@ -120,3 +120,126 @@ console.log(Fruits);
 
 
 
+/*
+  ===== ЧТО ТАКОЕ DOM? =====
+
+  DOM (Document Object Model) — это объектная модель документа,
+  которая представляет HTML-страницу в виде дерева элементов (узлов).
+  Каждый тег, текст и атрибут — это объект, к которому можно обращаться
+  и менять его через JavaScript.
+
+  С помощью DOM мы можем:
+  - НАХОДИТЬ ЭЛЕМЕНТЫ НА СТРАНИЦЕ,
+  - МЕНЯТЬ ИХ СОДЕРЖИМОЕ И СТИЛИ,
+  - РЕАГИРОВАТЬ НА ДЕЙСТВИЯ ПОЛЬЗОВАТЕЛЯ (КЛИКИ, ВВОД И Т.Д.),
+  - СОЗДАВАТЬ И УДАЛЯТЬ ЭЛЕМЕНТЫ ДИНАМИЧЕСКИ.
+
+  DOM — это мост между твоим кодом JS и видимой страницей в браузере.
+*/
+
+/* ===== ОСНОВНЫЕ МЕТОДЫ И СВОЙСТВА DOM С ПРИМЕРАМИ ===== */
+
+// ! 1. ПОИСК ЭЛЕМЕНТОВ
+
+// ! getElementById(id) — ищет элемент по ID
+const elemById = document.getElementById("myId"); 
+// пример: <div id="myId"></div>
+
+// ! querySelector(selector) — ищет первый элемент по CSS-селектору
+const firstElem = document.querySelector(".myClass"); 
+// пример: <div class="myClass"></div>
+
+// ! querySelectorAll(selector) — ищет все элементы по CSS-селектору
+const allElems = document.querySelectorAll("p"); 
+// пример: <p></p><p></p>
+
+// ! getElementsByClassName(className) — возвращает коллекцию элементов с классом
+const elemsByClass = document.getElementsByClassName("item"); 
+// пример: <div class="item"></div>
+
+// ! getElementsByTagName(tagName) — возвращает коллекцию элементов по тегу
+const elemsByTag = document.getElementsByTagName("div"); 
+// пример: <div></div>
+
+// 2. РАБОТА С СОДЕРЖИМЫМ
+
+// ! textContent — получает или задаёт текст внутри элемента (без HTML)
+elemById.textContent = "Привет!"; 
+// изменит содержимое <div id="myId"></div> на текст "Привет!"
+
+// ! innerHTML — получает или задаёт HTML-код внутри элемента
+elemById.innerHTML = "<b>Жирный текст</b>"; 
+// изменит содержимое, вставив HTML-тег <b>
+
+// ! value — получает или задаёт значение для input, textarea
+const input = document.querySelector("input");
+input.value = "Текст для input";
+
+// 3. РАБОТА СО СТИЛЯМИ И КЛАССАМИ
+
+// ! style.property — изменяет CSS-свойство элемента
+elemById.style.color = "red"; 
+// сделает текст красным
+
+// ! classList.add(className) — добавляет класс элементу
+elemById.classList.add("active"); 
+
+// ! classList.remove(className) — удаляет класс у элемента
+elemById.classList.remove("hidden"); 
+
+// ! classList.toggle(className) — переключает класс (если есть — убирает, если нет — добавляет)
+elemById.classList.toggle("open"); 
+
+// ! classList.contains(className) — проверяет наличие класса, возвращает true/false
+const hasClass = elemById.classList.contains("active"); 
+
+// 4. ОБРАБОТКА СОБЫТИЙ
+
+// ! addEventListener(event, handler) — добавляет обработчик события
+elemById.addEventListener("click", () => {
+  console.log("Клик по элементу!");
+});
+
+// ! onclick — альтернативный способ назначить обработчик события
+elemById.onclick = function() {
+  alert("Элемент был кликнут!");
+};
+
+// 5. СОЗДАНИЕ И ВСТАВКА ЭЛЕМЕНТОВ
+
+// ! createElement(tagName) — создаёт новый элемент
+const newDiv = document.createElement("div");
+
+// ! appendChild(child) — добавляет дочерний элемент в конец родителя
+document.body.appendChild(newDiv);
+
+// ! prepend(child) — добавляет дочерний элемент в начало родителя
+document.body.prepend(newDiv);
+
+// ! remove() — удаляет элемент из DOM
+newDiv.remove();
+
+// 6. НАВИГАЦИЯ ПО DOM
+
+// ! parentElement — родительский элемент
+const parent = elemById.parentElement;
+
+// ! children — коллекция дочерних элементов
+const children = elemById.children;
+
+// ! firstElementChild — первый дочерний элемент
+const firstChild = elemById.firstElementChild;
+
+// ! nextElementSibling — следующий соседний элемент
+const nextSibling = elemById.nextElementSibling;
+
+// ===== ПРИМЕР НА ПРАКТИКЕ =====
+
+const nameInput = document.getElementById("nameInput");
+const sayHelloBtn = document.getElementById("sayHelloBtn");
+const output = document.getElementById("output");
+
+sayHelloBtn.addEventListener("click", () => {
+  const name = nameInput.value;
+  output.textContent = `Привет, ${name}!`;
+});
