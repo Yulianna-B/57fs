@@ -1,30 +1,113 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+
+}
+
+form {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow:0, 0, 15px rgba(0,0,0,0,1);
+    display: flex;
+flex-direction: column;
+gap: 10px;
+width: 100%;
+max-width: 400px;
+}
+
+input[type="text"] {
+    padding: 12px, 16px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #409eff;
+    outline: none;
+    box-shadow: 0,0,px, rgba (64,158, 255, 0.3);
+}
 .btn-container{
     font-size: 0;
 }
 .btn{
     border:none;
-    background-color: lightblue;
+    background-color: rgb(137, 209, 233);
     color: white;
     display: inline;
     padding: 10px;
     border-radius: 10px;
 
 }
+
+.btn:hover {
+    background-color: #186cd4;
+}
+.btn-container{
+    display: flex;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+#person-list {
+margin-top: 30px;
+list-style: none;
+padding: 0;
+width: 100%;
+max-width: 400px;
+font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+
+#person-list li {
+padding: 10px 16px 
+background-color: white;
+margin-bottom: 10px;
+box-shadow: 0, 2px, 4px rgba(0, 0, 0, 0,05)
+font-size: 24px;
+text-align: center;
+text-transform: uppercase;
+}
+
+@media (max-width: 480px){
+    form, #person-list {
+        padding: 15px;
+        max-width: 90%;
+    }
+}
+
 .left{
-    background-color: lightblue;
+    background-color: rgb(149, 210, 230);
     color: white;
     margin-right: 0;
-    display: inline;
+    display: inline-block;
     padding: 10px;
-    border-radius:10px 0 0 10px;
+    border-radius:10px 10px 10px 10px;
     border: 1px solid black;
 }
 .right{
-    background-color: lightpink;
+    background-color: rgb(250, 165, 178);
     color: white;
-    display: inline;
+    display: inline-block;
     margin-left: 0;
     padding: 10px;
-    border-radius:0 10px 10px 0 ;
+    border-radius:10px 10px 10px 10px ;
     border: 1px solid black;
 }
