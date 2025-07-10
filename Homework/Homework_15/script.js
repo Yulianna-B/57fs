@@ -26,3 +26,25 @@ MyPromise
     console.log("Something went wrong:", error);
     
 });
+
+
+📘 Задание:
+Сделай Promise, который:
+через 2 секунды возвращает "Done" (через resolve)
+Обработай через .then() и выведи результат
+💡 Подсказка: используем setTimeout
+
+
+const Promise2 = new Promise((resolve) => {
+ setTimeout(() => {
+        resolve("Done");
+     },2000);
+        
+    });
+
+    Promise2
+    .then((newResult) => {
+console.log("Result is fully implemented:", newResult);
+
+
+    });
