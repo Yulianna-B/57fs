@@ -9,9 +9,9 @@ fetch('book.json')
 .then(data => {
     const book = document.getElementById('book-info');
     book.innerHTML = `
-    <p><Title: ${data.title}</p>
-      <p><Author: ${data.author}</p>
-        <p><Year: ${data.year}</p>
+    <p>Title: ${data.title}</p>
+      <p>Author: ${data.author}</p>
+        <p>Year: ${data.year}</p>
         `;
 })
 
