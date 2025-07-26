@@ -1,0 +1,141 @@
+
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  background-image: url('https://d2idu5mmj5r5g3.cloudfront.net/photos_n/wlKQQOgqNi510952.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color:rgb(0, 0, 0);
+  text-shadow: 0 1px,2px;
+  backdrop-filter: blur(3px);
+  
+  
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right:0; bottom:0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.glass-block {
+    background: rgba(255, 255, 255, 0.15); 
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color:#e7f1fc;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.7)
+  }
+
+#current-weather {
+    background-color: #ffffffcc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .language-switcher {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .language-switcher button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+#weeklyWeather {
+    background-color: #ffffffcc;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.forecast-card {
+    flex: 0 0 120px;  
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    padding: 15px 10px;
+    text-align: center;
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+}
+
+.weather-weekly {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 10px;
+    justify-content: center;
+}
+
+.forecast-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    z-index: 10; 
+
+}
+#weeklyWeather h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#forecast-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.forecast-day {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    border: 1px, solid;
+    padding: 15px;
+    width: 140px;
+    text-align: center;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+
+.forecast-day:hover {
+    transform: translateY(-5px);
+}
+@media screen and (max-width: 600px) {
+    #forecast-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+    
