@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини-гайд по Git</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Мини-гайд по Git</h1>
+    <p>Основы, ветки, Pull Request, Stash, Cherry-pick, Reset и Revert</p>
+</header>
+
+<main>
+
+    <section>
+        <h2 onclick="toggleSection(this)">1. Что такое Git</h2>
+        <p><strong>Git</strong> — система контроля версий. Хранит историю проекта и позволяет:</p>
+        <ul>
+            <li>Возвращаться к старым версиям кода</li>
+            <li>Работать в команде без потери данных</li>
+            <li>Создавать параллельные ветки разработки</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 onclick="toggleSection(this)">2. Git и GitHub</h2>
+        <p><strong>Git</strong> — инструмент для работы с версиями на вашем компьютере.</p>
+        <p><strong>GitHub</strong> — онлайн-платформа, где хранятся удалённые репозитории.</p>
+    </section>
+
+
+    <section>
+        <h2 onclick="toggleSection(this)">Конвенция по именованию коммитов</h2>
+        <ul>
+            <li><strong>feat:</strong> добавление нового функционала — <code>feat: add search bar</code></li>
+            <li><strong>fix:</strong> исправление ошибок — <code>fix: search bar validation</code></li>
+            <li><strong>docs:</strong> изменения в документации — <code>docs: add info on loading</code></li>
+            <li><strong>chore:</strong> работы «по дому», изменения зависимостей — <code>chore: add prettier</code></li>
+            <li><strong>refactor:</strong> рефакторинг кода без добавления функционала</li>
+            <li><strong>style:</strong> изменения стилей</li>
+            <li><strong>build:</strong> исправления ошибок сборки</li>
+            <li><strong>perf:</strong> улучшение производительности</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 onclick="toggleSection(this)">Основные команды для работы с ветками</h2>
+        <pre>
+git checkout -b example-name     # создать и перейти в новую ветку
+git checkout main                # перейти в ветку main
+git branch name                  # создать ветку с указанным названием
+git branch -a                    # посмотреть все ветки (* — текущая)
+git branch -d dashboard          # удалить локальную ветку
+git push origin --delete dashboard  # удалить удалённую ветку
+git branch -m old_name new_name  # переименовать локальную ветку
+git push -u origin advert        # создать удалённую ветку и залить туда код
+        </pre>
+    </section>
+
+    <section>
+        <h2 onclick="toggleSection(this)">Git Stash</h2>
+        <p>Временное сохранение изменений:</p>
+        <pre>
+git stash        # спрятать изменения
+git stash pop    # достать изменения
+        </pre>
+    </section>
+
+    <section>
+        <h2 onclick="toggleSection(this)">Git Fetch</h2>
+        <p>Обновить информацию об удалённом репозитории:</p>
+        <pre>git fetch</pre>
+    </section>
+
+    <section>
+        <h2 onclick="toggleSection(this)">Как жить в этом мире? (Процесс работы)</h2>
+        <ol>
+            <li>Создать ветку: <code>git checkout -b name_of_branch</code></li>
+            <li>Написать код, выполнить:
+                <pre>git add .<br>git commit -m 'your message'</pre>
+            </li>
+            <li>Подтянуть актуальное состояние:
+                <pre>git pull origin main</pre> или <pre>git pull origin dev</pre>
+            </li>
+            <li>Разрешить конфликты</li>
+            <li>Отправить ветку:
+                <pre>git push -u origin name_of_branch</pre>
+            </li>
+            <li>Создать Pull Request</li>
+            <li>Team Lead мержит или отклоняет PR</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2 onclick="toggleSection(this)">Первое правило гитовского клуба</h2>
+        <p>Пушить только в одноимённую ветку.  
+        Между разными ветками — только через Pull Request.</p>
+    </section>
+
+    <section>
+        <h2 onclick="toggleSection(this)">Cherry-pick</h2>
+        <p>Выборочный перенос коммита:</p>
+        <pre>
+git cherry-pick &lt;хэш коммита&gt;
+# При конфликтах:
+# - исправляем конфликт в файлах
+git add .
+git cherry-pick --continue
+        </pre>
+    </section>
+
+    <section class="section">
+        <h2>Git Revert</h2>
+        <p><strong>git revert</strong> — команда, которая <u>отменяет изменения конкретного коммита</u>, создавая новый коммит, который «откатывает» его. В отличие от <code>git reset</code>, история изменений сохраняется.</p>
+
+        <h3>Когда использовать</h3>
+        <ul>
+            <li>Когда коммит уже отправлен в удалённый репозиторий</li>
+            <li>Когда нужно безопасно отменить изменения, не ломая историю</li>
+        </ul>
+
+        <h3>Синтаксис</h3>
+        <pre><code>git revert &lt;хэш_коммита&gt;</code></pre>
+
+        <h3>Пример</h3>
+        <pre><code>
+# Смотрим историю
+git log
+
+# Откатываем коммит по хэшу
+git revert abc123
+        </code></pre>
+
+        <h3>Разрешение конфликтов при revert</h3>
+        <pre><code>
+git add .
+git revert --continue
+        </code></pre>
+
+        <h3>Отличие от git reset</h3>
+        <div class="compare-box">
+            <div><strong>git revert</strong><br>Создаёт новый коммит, который отменяет изменения. История сохраняется. Безопасно для команды.</div>
+            <div><strong>git reset</strong><br>Перематывает историю назад, удаляя коммиты. Может быть опасно, если уже пушили в общий репозиторий.</div>
+        </div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJKGzNyHDd7S8wKIy0q2DiJMB2ysf0rB8zgw&s" alt="Разница между git revert и git reset" class="git-image">
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
